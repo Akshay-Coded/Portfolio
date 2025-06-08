@@ -1,0 +1,244 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+
+    /* Cosmic Theme Colors */
+    --cosmic-dark: 220 26% 8%;
+    --cosmic-deep: 220 26% 12%;
+    --cosmic-darker: 220 26% 4%;
+    --cosmic-light: 220 14% 96%;
+    --cosmic-blue: 217 91% 60%;
+    --cosmic-purple: 262 83% 58%;
+    --cosmic-teal: 172 66% 50%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-poppins);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Cosmic Color Classes */
+  .bg-cosmic-dark {
+    background-color: hsl(var(--cosmic-dark));
+  }
+  .bg-cosmic-deep {
+    background-color: hsl(var(--cosmic-deep));
+  }
+  .bg-cosmic-darker {
+    background-color: hsl(var(--cosmic-darker));
+  }
+  .text-cosmic-light {
+    color: hsl(var(--cosmic-light));
+  }
+  .text-cosmic-blue {
+    color: hsl(var(--cosmic-blue));
+  }
+  .text-cosmic-purple {
+    color: hsl(var(--cosmic-purple));
+  }
+  .text-cosmic-teal {
+    color: hsl(var(--cosmic-teal));
+  }
+  .border-cosmic-blue {
+    border-color: hsl(var(--cosmic-blue));
+  }
+  .border-cosmic-purple {
+    border-color: hsl(var(--cosmic-purple));
+  }
+  .border-cosmic-teal {
+    border-color: hsl(var(--cosmic-teal));
+  }
+
+  /* Cosmic Shadows */
+  .shadow-cosmic-glow {
+    box-shadow: 0 0 20px hsl(var(--cosmic-blue) / 0.3);
+  }
+  .shadow-cosmic-glow-sm {
+    box-shadow: 0 0 10px hsl(var(--cosmic-blue) / 0.2);
+  }
+  .shadow-cosmic-glow-lg {
+    box-shadow: 0 0 40px hsl(var(--cosmic-blue) / 0.4);
+  }
+
+  /* Cosmic Buttons */
+  .cosmic-button {
+    @apply bg-gradient-to-r from-cosmic-blue to-cosmic-teal hover:from-cosmic-blue/80 hover:to-cosmic-teal/80 text-white border-0 shadow-cosmic-glow-sm hover:shadow-cosmic-glow transition-all duration-300;
+  }
+
+  .cosmic-button-outline {
+    @apply border border-cosmic-blue/30 text-cosmic-blue hover:bg-cosmic-blue/10 hover:border-cosmic-blue/50 transition-all duration-300;
+  }
+
+  .cosmic-button-active {
+    @apply bg-cosmic-blue/20 border-cosmic-blue/50 text-cosmic-blue shadow-cosmic-glow-sm;
+  }
+
+  .cosmic-button-ghost {
+    @apply text-cosmic-light/70 hover:text-cosmic-blue hover:bg-cosmic-blue/10 transition-all duration-300;
+  }
+
+  /* Cosmic Inputs */
+  .cosmic-input {
+    @apply bg-cosmic-dark/50 border border-cosmic-blue/20 text-cosmic-light placeholder:text-cosmic-light/50 focus:border-cosmic-blue/50 focus:ring-cosmic-blue/20 transition-all duration-300;
+  }
+
+  /* Cosmic Cards */
+  .cosmic-card-featured {
+    @apply border-cosmic-blue/40 shadow-cosmic-glow;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-cosmic-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-cosmic-blue/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-cosmic-blue/50;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection */
+::selection {
+  @apply bg-cosmic-blue/30 text-cosmic-light;
+}
+
+/* Cosmic animations */
+@keyframes cosmic-float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes cosmic-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes cosmic-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px hsl(var(--cosmic-blue) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px hsl(var(--cosmic-blue) / 0.6);
+  }
+}
+
+.animate-cosmic-float {
+  animation: cosmic-float 3s ease-in-out infinite;
+}
+
+.animate-cosmic-pulse {
+  animation: cosmic-pulse 2s ease-in-out infinite;
+}
+
+.animate-cosmic-glow {
+  animation: cosmic-glow 2s ease-in-out infinite;
+}
+
+/* Backdrop blur support */
+@supports (backdrop-filter: blur(10px)) {
+  .backdrop-blur-cosmic {
+    backdrop-filter: blur(10px);
+  }
+}
+
+/* Focus styles */
+.focus-cosmic:focus {
+  @apply outline-none ring-2 ring-cosmic-blue/50 ring-offset-2 ring-offset-cosmic-dark;
+}
+
+/* Gradient text */
+.gradient-cosmic {
+  background: linear-gradient(135deg, hsl(var(--cosmic-blue)), hsl(var(--cosmic-purple)), hsl(var(--cosmic-teal)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
